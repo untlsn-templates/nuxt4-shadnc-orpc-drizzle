@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/image',
     'shadcn-nuxt',
+    '@nuxtjs/color-mode',
   ],
   imports: {
     presets: [
@@ -24,6 +25,7 @@ export default defineNuxtConfig({
     },
   },
   css: ['~/assets/main.css'],
+  colorMode: { classSuffix: '' },
   runtimeConfig: {
     db: {
       url: 'file:local.db', // NUXT_DB_URL
@@ -48,6 +50,9 @@ export default defineNuxtConfig({
         semi: true,
       },
     },
+  },
+  icon: {
+    componentName: 'NuxtIcon',
   },
   shadcn: {
     prefix: 'ui',
