@@ -1,0 +1,48 @@
+import tailwindcss from '@tailwindcss/vite';
+
+// https://nuxt.com/docs/api/configuration/nuxt-config
+export default defineNuxtConfig({
+  modules: [
+    '@nuxt/eslint',
+    '@nuxt/fonts',
+    '@nuxt/icon',
+    '@nuxt/image',
+    'shadcn-nuxt',
+  ],
+  devtools: { enabled: true },
+  app: {
+    head: {
+      title: 'Md Share',
+    },
+  },
+  css: ['~/assets/main.css'],
+  runtimeConfig: {
+    db: {
+      url: 'file:local.db', // NUXT_DB_URL
+      token: '', // NUXT_DB_TOKEN
+      dialect: 'sqlite', // NUXT_DB_DIALECT
+    },
+  },
+  compatibilityDate: '2025-07-15',
+  nitro: {
+    prerender: {
+      routes: ['/'],
+    },
+  },
+  vite: {
+    plugins: [
+      tailwindcss(),
+    ],
+  },
+  eslint: {
+    config: {
+      stylistic: {
+        semi: true,
+      },
+    },
+  },
+  shadcn: {
+    prefix: 'ui',
+    componentDir: './components/ui',
+  },
+});
