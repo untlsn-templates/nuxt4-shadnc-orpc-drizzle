@@ -9,6 +9,14 @@ export default defineNuxtConfig({
     '@nuxt/image',
     'shadcn-nuxt',
   ],
+  imports: {
+    presets: [
+      {
+        from: '@tanstack/vue-query',
+        imports: ['useQuery', 'useMutation', 'useInfiniteQuery'],
+      },
+    ],
+  },
   devtools: { enabled: true },
   app: {
     head: {
